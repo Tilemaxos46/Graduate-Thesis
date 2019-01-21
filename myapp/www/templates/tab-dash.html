@@ -1,0 +1,31 @@
+<ion-view view-title="Radio Player">
+  <ion-content class="padding">
+    <center>
+
+      <div ng-if="online">
+        <p>
+        <h4>Καλώς ήρθατε στο</h4>
+        <img ng-src="img/logo2.png" alt="" style="width:70%" />
+        <p>
+        <audio src="http://83.212.101.230:8000/live" controls autoplay onloadstart="this.volume=0.5">
+        </audio>
+        <!-- <div>{{stats.icestats.source}}</div> -->
+        <div><b>Now Playing:</b> {{stats.icestats.source.title}}</div>
+        <div><b>Genre:</b> {{stats.icestats.source.genre}}</div>
+        <div><b>Listeners:</b> {{stats.icestats.source.listeners}}</div>
+        <div><b>Powered by:</b> <a href="{{stats.icestats.source.server_url}}">http://tilemaxos.eu/dproject/</a></div>
+      </div>
+      <div ng-if="!online">
+        <p>
+        <h4>Καλώς ήρθατε στο</h4>
+        <img ng-src="img/logo2.png" alt="" style="width:50%" />
+        <p>
+        <div>
+          <img ng-src="img/offline.jpg" alt="" style="width:50%" />
+          <p>
+          <div><b>Powered by:</b> <a href="http://tilemaxos.eu/dproject/">http://tilemaxos.eu/dproject/</a></div>
+        </div>
+      </div>
+    </center>
+  </ion-content>
+</ion-view>

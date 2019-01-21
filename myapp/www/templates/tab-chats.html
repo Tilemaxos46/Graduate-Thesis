@@ -1,0 +1,34 @@
+<ion-view view-title="Chatroom">
+  <ion-content>
+    <!-- Εntrance.  -->
+    <div ng-if="!username_bool">
+      <div class="list">
+         <div class="item item-input-inset">
+            <label class="item item-input-wrapper">
+            <input type="text" placeholder="Enter Usename" ng-model="data.username">
+            </label>
+            <button ng-click="save()" class="button">Save</button>
+         </div>
+      </div>
+    </div>
+    <!-- Εnd of user input -->
+
+    <div ng-if="username_bool">
+      <ion-list>
+        <!-- Repeat in items array and show the last 5 message. -->
+        <ion-item ng-repeat="item in items | limitTo:-5">
+          {{item.name}}: {{item.message}}
+        </ion-item>
+      </ion-list>
+      <!-- Textbox -->
+      <div class="list">
+         <div class="item item-input-inset">
+            <label class="item item-input-wrapper">
+            <input type="text" placeholder="Type message" ng-model="data.message">
+            </label>
+            <button ng-click="send()" class="button">Send</button>
+         </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
